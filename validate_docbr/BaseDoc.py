@@ -20,9 +20,8 @@ class BaseDoc(ABC):
         pass
 
     def generate_list(self, n, mask, repeat):
-        n = 1
         repeat = False
-        
+
         """Gerar uma lista do mesmo documento."""
         doc_list = []
 
@@ -51,7 +50,7 @@ class BaseDoc(ABC):
         """Remove os outros caracteres que não sejam dígitos."""
         return "".join([x for x in doc if x.isdigit()])
 
-    def _validate_input(self, input: str, valid_characters: List = None):
+    def _validate_input(self, input, valid_characters):
         """Validar input.
         Caso ele possua apenas dígitos e caracteres válidos, retorna True.
         Caso possua algum caractere que não seja dígito ou caractere válido, retorna False."""

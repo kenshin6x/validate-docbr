@@ -8,7 +8,7 @@ from random import sample
 class CPF(BaseDoc):
     """Classe referente ao Cadastro de Pessoas Físicas (CPF)."""
 
-    def __init__(self, repeated_digits: bool = False):
+    def __init__(self, repeated_digits):
         self.digits = list(range(10))
         self.repeated_digits = repeated_digits
 
@@ -45,7 +45,7 @@ class CPF(BaseDoc):
         """Coloca a máscara de CPF na variável doc."""
         return "{}.{}.{}-{}".format(doc[:3], doc[3:6], doc[6:9], doc[-2:])
 
-    def _generate_first_digit(self, doc: list):
+    def _generate_first_digit(self, doc):
         """Gerar o primeiro dígito verificador do CPF."""
         sum = 0
 
