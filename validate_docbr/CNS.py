@@ -120,7 +120,7 @@ class CNS(BaseDoc):
 
         return self._change_cns(cns, i, val)
 
-    def _sum_algorithm(self, cns: list, n: int = 15) -> int:
+    def _sum_algorithm(self, cns: list, n5) -> int:
         """Realiza o processo de soma necessária para o CNS."""
         sum = 0
         for i in range(n):
