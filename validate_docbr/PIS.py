@@ -53,7 +53,7 @@ class PIS(BaseDoc):
 
         return str(digit)
 
-    def _is_repeated_digits(self, doc: str):
+    def _is_repeated_digits(self, doc):
         """Verifica se o PIS/NIS/PASEP/NIT contém com números repetidos.
         Exemplo: 11111111111"""
         return len(set(doc)) == 1

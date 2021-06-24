@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
 from .BaseDoc import BaseDoc
 from random import sample
 
@@ -59,7 +58,7 @@ class CPF(BaseDoc):
 
         return str(sum)
 
-    def _generate_second_digit(self, doc: list):
+    def _generate_second_digit(self, doc):
         """Gerar o segundo dígito verificador do CPF."""
         sum = 0
 
@@ -73,7 +72,7 @@ class CPF(BaseDoc):
 
         return str(sum)
 
-    def _check_repeated_digits(self, doc: List[str]):
+    def _check_repeated_digits(self, doc):
         """Verifica se é um CPF com números repetidos.
         Exemplo: 111.111.111-11"""
         return len(set(doc)) == 1

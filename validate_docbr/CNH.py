@@ -68,7 +68,7 @@ class CNH(BaseDoc):
             second_value = 0
         return str(second_value)
 
-    def _is_repeated_digits(self, doc: str):
+    def _is_repeated_digits(self, doc):
         """Verifica se é uma CNH contém com números repetidos.
         Exemplo: 11111111111"""
         return len(set(doc)) == 1

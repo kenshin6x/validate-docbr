@@ -23,13 +23,13 @@ class CNS(BaseDoc):
 
         return self._check_cns_valid(doc)
 
-    def _validate_first_case(self, doc: list):
+    def _validate_first_case(self, doc):
         """Validar CNSs que comecem com 1 ou 2."""
         cns = self._generate_first_case(doc)
 
         return cns == doc
 
-    def _validate_second_case(self, doc: list):
+    def _validate_second_case(self, doc):
         """Validar CNSs que comecem com 7, 8 ou 9."""
         sum = self._sum_algorithm(doc)
 
@@ -54,7 +54,7 @@ class CNS(BaseDoc):
         """Coloca a máscara de CPF na variável doc."""
         return "{} {} {} {}".format(doc[:3], doc[3:7], doc[7:11], doc[-4:])
 
-    def _generate_first_case(self, cns: list, generate_random=False) -> list:
+    def _generate_first_case(self, cns, generate_random=False) -> list:
         """Gera um CNS válido para os casos que se inicia com 1 ou 2."""
         if generate_random:
             # Adiciona os próximos 10 dígitos
@@ -80,7 +80,7 @@ class CNS(BaseDoc):
 
         return cns
 
-    def _generate_second_case(self, cns: list) -> list:
+    def _generate_second_case(self, cns) -> list:
         """Gera um CNS válido para os casos que se inicia com 7, 8 ou 9."""
         # Gerar os próximos 14 dígitos
         cns = cns + [str(sample(list(range(10)), 1)[0]) for i in range(14)]
@@ -96,7 +96,7 @@ class CNS(BaseDoc):
         # Verificar qual é o mais próximo
         return self._change_cns(cns, 15 - diff, diff)
 
-    def _change_cns(self, cns: list, i: int, val: int) -> list:
+    def _change_cns(self, cns, i: int, val: int) -> list:
         """Altera o CNS recursivamente para que atenda as especificações de validade dele."""
         if val == 0:
             if self._check_cns_valid(cns):
@@ -120,7 +120,7 @@ class CNS(BaseDoc):
 
         return self._change_cns(cns, i, val)
 
-    def _sum_algorithm(self, cns: list, n5) -> int:
+    def _sum_algorithm(self, cns, n5) -> int:
         """Realiza o processo de soma necessária para o CNS."""
         sum = 0
         for i in range(n):
@@ -128,7 +128,7 @@ class CNS(BaseDoc):
 
         return sum
 
-    def _check_cns_valid(self, cns: list):
+    def _check_cns_valid(self, cns):
         """Checa se o CNS é válido."""
         if cns[0] in ['1', '2']:
             return self._validate_first_case(cns)
