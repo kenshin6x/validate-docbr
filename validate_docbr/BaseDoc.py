@@ -11,7 +11,7 @@ class BaseDoc(ABC):
         """Método para validar o documento desejado."""
         pass
 
-    def validate_list(self, docs: List[str]):
+    def validate_list(self, docs):
         """Método para validar uma lista de documentos desejado."""
         return [self.validate(doc) for doc in docs]
 
