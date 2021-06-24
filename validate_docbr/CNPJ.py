@@ -11,7 +11,7 @@ class CNPJ(BaseDoc):
         self.weights_first = list(range(5, 1, -1)) + list(range(9, 1, -1))
         self.weights_second = list(range(6, 1, -1)) + list(range(9, 1, -1))
 
-    def validate(self, doc: str = ''):
+    def validate(self, doc):
         """Validar CNPJ."""
         if not self._validate_input(doc, ['.', '/', '-']):
             return False
@@ -41,7 +41,7 @@ class CNPJ(BaseDoc):
 
         return self.mask(cnpj) if mask else cnpj
 
-    def mask(self, doc: str = ''):
+    def mask(self, doc):
         """Coloca a máscara de CNPJ na variável doc."""
         return "{}.{}.{}/{}-{}".format(doc[:2], doc[2:5], doc[5:8], doc[8:12], doc[-2:])
 

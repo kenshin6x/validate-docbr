@@ -13,7 +13,7 @@ class TituloEleitoral(BaseDoc):
         self.first_check_digit_doc_slice = slice(0, 8)
         self.second_check_digit_doc_slice = slice(8, 10)
 
-    def validate(self, doc: str = ''):
+    def validate(self, doc):
         """Método para validar o título eleitoral."""
         if not self._validate_input(doc, [' ']):
             return False
@@ -47,7 +47,7 @@ class TituloEleitoral(BaseDoc):
 
         return document
 
-    def mask(self, doc: str = ''):
+    def mask(self, doc):
         """Mascara o documento enviado"""
         return '{} {} {}'.format(doc[0:4], doc[4:8], doc[8:])
 

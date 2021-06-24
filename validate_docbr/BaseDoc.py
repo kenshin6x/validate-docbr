@@ -5,7 +5,7 @@ from typing import List
 class BaseDoc(ABC):
     """Classe base para todas as classes referentes a documentos."""
 
-    def validate(self, doc: str = ''):
+    def validate(self, doc):
         """Método para validar o documento desejado."""
         pass
 
@@ -38,11 +38,11 @@ class BaseDoc(ABC):
 
         return doc_list
 
-    def mask(self, doc: str = ''):
+    def mask(self, doc):
         """Mascara o documento enviado"""
         pass
 
-    def _only_digits(self, doc: str = ''):
+    def _only_digits(self, doc):
         """Remove os outros caracteres que não sejam dígitos."""
         return "".join([x for x in doc if x.isdigit()])
 

@@ -10,7 +10,7 @@ class CPF(BaseDoc):
         self.digits = list(range(10))
         self.repeated_digits = repeated_digits
 
-    def validate(self, doc: str = ''):
+    def validate(self, doc):
         """Validar CPF."""
         if not self._validate_input(doc, ['.', '-']):
             return False
@@ -39,7 +39,7 @@ class CPF(BaseDoc):
 
         return self.mask(cpf) if mask else cpf
 
-    def mask(self, doc: str = ''):
+    def mask(self, doc):
         """Coloca a máscara de CPF na variável doc."""
         return "{}.{}.{}-{}".format(doc[:3], doc[3:6], doc[6:9], doc[-2:])
 

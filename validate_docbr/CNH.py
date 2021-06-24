@@ -9,7 +9,7 @@ class CNH(BaseDoc):
     def __init__(self):
         self.digits = list(range(10))
 
-    def validate(self, doc: str = ''):
+    def validate(self, doc):
         """Validar CNH."""
         if not self._validate_input(doc, [' ']):
             return False
@@ -33,7 +33,7 @@ class CNH(BaseDoc):
         cnh = ''.join(cnh)
         return self.mask(cnh) if mask else cnh
 
-    def mask(self, doc: str = ''):
+    def mask(self, doc):
         """Coloca a máscara de CNH na variável doc."""
         return "{} {} {} {}".format(doc[:3], doc[3:6], doc[6:9], doc[9:])
 

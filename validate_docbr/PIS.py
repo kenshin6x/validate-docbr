@@ -9,7 +9,7 @@ class PIS(BaseDoc):
     def __init__(self):
         self.digits = list(range(10))
 
-    def validate(self, doc: str = ''):
+    def validate(self, doc):
         """Validar PIS/NIS/PASEP/NIT."""
         if not self._validate_input(doc, ['.', '-']):
             return False
@@ -31,7 +31,7 @@ class PIS(BaseDoc):
         pis = ''.join(pis)
         return self.mask(pis) if mask else pis
 
-    def mask(self, doc: str = ''):
+    def mask(self, doc):
         """Coloca a máscara de PIS/NIS/PASEP/NIT na variável doc."""
         return "{}.{}.{}-{}".format(doc[:3], doc[3:8], doc[8:10], doc[10:])
 
