@@ -26,7 +26,7 @@ class CNH(BaseDoc):
 
         return first_digit == doc[9] and second_digit == doc[10]
 
-    def generate(self, mask: bool = False):
+    def generate(self, mask):
         """Gerar CNH."""
         cnh = [str(sample(self.digits, 1)[0]) for i in range(9)]
         cnh.append(self._generate_first_digit(cnh))

@@ -35,7 +35,7 @@ class CNS(BaseDoc):
 
         return sum % 11 == 0
 
-    def generate(self, mask: bool = False):
+    def generate(self, mask):
         """Gerar CNS."""
         # Primeiro dígito válido
         cns = [str(sample(self.first_digit, 1)[0])]

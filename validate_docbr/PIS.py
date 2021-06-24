@@ -25,7 +25,7 @@ class PIS(BaseDoc):
 
         return digit == doc[10]
 
-    def generate(self, mask: bool = False):
+    def generate(self, mask):
         """Gerar PIS/NIS/PASEP/NIT."""
         pis = [str(sample(self.digits, 1)[0]) for i in range(10)]
         pis.append(self._generate_digit(pis))

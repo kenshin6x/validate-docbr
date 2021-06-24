@@ -30,7 +30,7 @@ class TituloEleitoral(BaseDoc):
 
         return first_check_digit == doc_digits[-2] and second_check_digit == doc_digits[-1]
 
-    def generate(self, mask: bool = False):
+    def generate(self, mask):
         """Método para gerar um título eleitoral válido."""
         document_digits = [sample(self.digits, 1)[0] for _ in range(8)]
 

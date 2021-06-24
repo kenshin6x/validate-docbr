@@ -28,7 +28,7 @@ class CPF(BaseDoc):
         return self._generate_first_digit(doc) == doc[9] \
                and self._generate_second_digit(doc) == doc[10]
 
-    def generate(self, mask: bool = False):
+    def generate(self, mask):
         """Gerar CPF."""
         # Os nove primeiros dígitos
         cpf = [str(sample(self.digits, 1)[0]) for i in range(9)]

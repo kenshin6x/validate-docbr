@@ -15,11 +15,11 @@ class BaseDoc(ABC):
         """Método para validar uma lista de documentos desejado."""
         return [self.validate(doc) for doc in docs]
 
-    def generate(self, mask: bool = False):
+    def generate(self, mask):
         """Método para gerar um documento válido."""
         pass
 
-    def generate_list(self, n: int = 1, mask: bool = False, repeat: bool = False) -> list:
+    def generate_list(self, n: int = 1, mask, repeat: bool = False) -> list:
         """Gerar uma lista do mesmo documento."""
         doc_list = []
 

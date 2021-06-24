@@ -30,7 +30,7 @@ class CNPJ(BaseDoc):
         return self._generate_first_digit(doc) == doc[12]\
                and self._generate_second_digit(doc) == doc[13]
 
-    def generate(self, mask: bool = False):
+    def generate(self, mask):
         """Gerar CNPJ."""
         # Os doze primeiros dígitos
         cnpj = [str(sample(self.digits, 1)[0]) for i in range(12)]
