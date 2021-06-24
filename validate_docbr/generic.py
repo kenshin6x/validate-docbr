@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import inspect
 from typing import List, Tuple
 from .BaseDoc import BaseDoc
