@@ -2,7 +2,7 @@
 
 from .BaseDoc import BaseDoc
 from random import sample
-from typing import Union
+
 
 
 class CNPJ(BaseDoc):
@@ -47,7 +47,7 @@ class CNPJ(BaseDoc):
         """Coloca a máscara de CNPJ na variável doc."""
         return "{}.{}.{}/{}-{}".format(doc[:2], doc[2:5], doc[5:8], doc[8:12], doc[-2:])
 
-    def _generate_first_digit(self, doc: Union[str, list]):
+    def _generate_first_digit(self, doc):
         """Gerar o primeiro dígito verificador do CNPJ."""
         sum = 0
 
@@ -63,7 +63,7 @@ class CNPJ(BaseDoc):
 
         return str(sum)
 
-    def _generate_second_digit(self, doc: Union[str, list]):
+    def _generate_second_digit(self, doc):
         """Gerar o segundo dígito verificador do CNPJ."""
         sum = 0
 

@@ -2,7 +2,7 @@
 
 from .BaseDoc import BaseDoc
 from random import sample
-from typing import Union
+
 
 
 class CNH(BaseDoc):
@@ -39,7 +39,7 @@ class CNH(BaseDoc):
         """Coloca a máscara de CNH na variável doc."""
         return "{} {} {} {}".format(doc[:3], doc[3:6], doc[6:9], doc[9:])
 
-    def _generate_first_digit(self, doc: Union[str, list]):
+    def _generate_first_digit(self, doc):
         """Gerar o primeiro dígito verificador da CNH."""
         self.dsc = 0
         sum = 0
@@ -52,7 +52,7 @@ class CNH(BaseDoc):
             first_value, self.dsc = 0, 2
         return str(first_value)
 
-    def _generate_second_digit(self, doc: Union[str, list]):
+    def _generate_second_digit(self, doc):
         """Gerar o segundo dígito verificador da CNH."""
         sum = 0
 
