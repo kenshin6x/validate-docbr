@@ -5,15 +5,15 @@ from typing import List
 class BaseDoc(ABC):
     """Classe base para todas as classes referentes a documentos."""
 
-    def validate(self, doc: str = '') -> bool:
+    def validate(self, doc: str = ''):
         """Método para validar o documento desejado."""
         pass
 
-    def validate_list(self, docs: List[str]) -> List[bool]:
+    def validate_list(self, docs: List[str]):
         """Método para validar uma lista de documentos desejado."""
         return [self.validate(doc) for doc in docs]
 
-    def generate(self, mask: bool = False) -> str:
+    def generate(self, mask: bool = False):
         """Método para gerar um documento válido."""
         pass
 
@@ -38,15 +38,15 @@ class BaseDoc(ABC):
 
         return doc_list
 
-    def mask(self, doc: str = '') -> str:
+    def mask(self, doc: str = ''):
         """Mascara o documento enviado"""
         pass
 
-    def _only_digits(self, doc: str = '') -> str:
+    def _only_digits(self, doc: str = ''):
         """Remove os outros caracteres que não sejam dígitos."""
         return "".join([x for x in doc if x.isdigit()])
 
-    def _validate_input(self, input: str, valid_characters: List = None) -> bool:
+    def _validate_input(self, input: str, valid_characters: List = None):
         """Validar input.
         Caso ele possua apenas dígitos e caracteres válidos, retorna True.
         Caso possua algum caractere que não seja dígito ou caractere válido, retorna False."""

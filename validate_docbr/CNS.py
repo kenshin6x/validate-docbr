@@ -9,7 +9,7 @@ class CNS(BaseDoc):
         self.digits = list(range(10))
         self.first_digit = [1, 2, 7, 8, 9]
 
-    def validate(self, doc: str = '') -> bool:
+    def validate(self, doc: str = ''):
         """Validar CNS."""
         if not self._validate_input(doc, [' ']):
             return False
@@ -21,19 +21,19 @@ class CNS(BaseDoc):
 
         return self._check_cns_valid(doc)
 
-    def _validate_first_case(self, doc: list) -> bool:
+    def _validate_first_case(self, doc: list):
         """Validar CNSs que comecem com 1 ou 2."""
         cns = self._generate_first_case(doc)
 
         return cns == doc
 
-    def _validate_second_case(self, doc: list) -> bool:
+    def _validate_second_case(self, doc: list):
         """Validar CNSs que comecem com 7, 8 ou 9."""
         sum = self._sum_algorithm(doc)
 
         return sum % 11 == 0
 
-    def generate(self, mask: bool = False) -> str:
+    def generate(self, mask: bool = False):
         """Gerar CNS."""
         # Primeiro dígito válido
         cns = [str(sample(self.first_digit, 1)[0])]
@@ -48,7 +48,7 @@ class CNS(BaseDoc):
 
         return self.mask(cns) if mask else cns
 
-    def mask(self, doc: str = '') -> str:
+    def mask(self, doc: str = ''):
         """Coloca a máscara de CPF na variável doc."""
         return "{} {} {} {}".format(doc[:3], doc[3:7], doc[7:11], doc[-4:])
 
@@ -126,7 +126,7 @@ class CNS(BaseDoc):
 
         return sum
 
-    def _check_cns_valid(self, cns: list) -> bool:
+    def _check_cns_valid(self, cns: list):
         """Checa se o CNS é válido."""
         if cns[0] in ['1', '2']:
             return self._validate_first_case(cns)

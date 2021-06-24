@@ -9,7 +9,7 @@ class CNH(BaseDoc):
     def __init__(self):
         self.digits = list(range(10))
 
-    def validate(self, doc: str = '') -> bool:
+    def validate(self, doc: str = ''):
         """Validar CNH."""
         if not self._validate_input(doc, [' ']):
             return False
@@ -24,7 +24,7 @@ class CNH(BaseDoc):
 
         return first_digit == doc[9] and second_digit == doc[10]
 
-    def generate(self, mask: bool = False) -> str:
+    def generate(self, mask: bool = False):
         """Gerar CNH."""
         cnh = [str(sample(self.digits, 1)[0]) for i in range(9)]
         cnh.append(self._generate_first_digit(cnh))
@@ -33,11 +33,11 @@ class CNH(BaseDoc):
         cnh = ''.join(cnh)
         return self.mask(cnh) if mask else cnh
 
-    def mask(self, doc: str = '') -> str:
+    def mask(self, doc: str = ''):
         """Coloca a máscara de CNH na variável doc."""
         return "{} {} {} {}".format(doc[:3], doc[3:6], doc[6:9], doc[9:])
 
-    def _generate_first_digit(self, doc: Union[str, list]) -> str:
+    def _generate_first_digit(self, doc: Union[str, list]):
         """Gerar o primeiro dígito verificador da CNH."""
         self.dsc = 0
         sum = 0
@@ -50,7 +50,7 @@ class CNH(BaseDoc):
             first_value, self.dsc = 0, 2
         return str(first_value)
 
-    def _generate_second_digit(self, doc: Union[str, list]) -> str:
+    def _generate_second_digit(self, doc: Union[str, list]):
         """Gerar o segundo dígito verificador da CNH."""
         sum = 0
 
@@ -66,7 +66,7 @@ class CNH(BaseDoc):
             second_value = 0
         return str(second_value)
 
-    def _is_repeated_digits(self, doc: str) -> bool:
+    def _is_repeated_digits(self, doc: str):
         """Verifica se é uma CNH contém com números repetidos.
         Exemplo: 11111111111"""
         return len(set(doc)) == 1

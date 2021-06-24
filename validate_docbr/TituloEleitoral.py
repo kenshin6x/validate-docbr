@@ -13,7 +13,7 @@ class TituloEleitoral(BaseDoc):
         self.first_check_digit_doc_slice = slice(0, 8)
         self.second_check_digit_doc_slice = slice(8, 10)
 
-    def validate(self, doc: str = '') -> bool:
+    def validate(self, doc: str = ''):
         """Método para validar o título eleitoral."""
         if not self._validate_input(doc, [' ']):
             return False
@@ -28,7 +28,7 @@ class TituloEleitoral(BaseDoc):
 
         return first_check_digit == doc_digits[-2] and second_check_digit == doc_digits[-1]
 
-    def generate(self, mask: bool = False) -> str:
+    def generate(self, mask: bool = False):
         """Método para gerar um título eleitoral válido."""
         document_digits = [sample(self.digits, 1)[0] for _ in range(8)]
 
@@ -47,7 +47,7 @@ class TituloEleitoral(BaseDoc):
 
         return document
 
-    def mask(self, doc: str = '') -> str:
+    def mask(self, doc: str = ''):
         """Mascara o documento enviado"""
         return '{} {} {}'.format(doc[0:4], doc[4:8], doc[8:])
 
@@ -81,6 +81,6 @@ class TituloEleitoral(BaseDoc):
 
         return total % 11
 
-    def _generate_valid_state_identifier(self) -> str:
+    def _generate_valid_state_identifier(self):
         state_identifier = str(sample(range(1, 19), 1)[0])
         return state_identifier.zfill(2)
