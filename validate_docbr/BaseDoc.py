@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from abc import ABC
-from typing import List
-
-
-class BaseDoc(ABC):
+class BaseDoc():
     """Classe base para todas as classes referentes a documentos."""
 
     def validate(self, doc):
