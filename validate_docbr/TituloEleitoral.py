@@ -68,7 +68,7 @@ class TituloEleitoral(BaseDoc):
 
         return total % 11
 
-    def _compute_second_check_digit(self, doc_digits: List[int], first_check_digit: int) -> int:
+    def _compute_second_check_digit(self, doc_digits: List[int], first_check_digit) -> int:
         """Método que calcula o segundo dígito verificador."""
         doc_digits_to_consider = doc_digits[self.second_check_digit_doc_slice] + [first_check_digit]
         terms = [

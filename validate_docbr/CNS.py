@@ -96,7 +96,7 @@ class CNS(BaseDoc):
         # Verificar qual é o mais próximo
         return self._change_cns(cns, 15 - diff, diff)
 
-    def _change_cns(self, cns, i: int, val: int):
+    def _change_cns(self, cns, i, val):
         """Altera o CNS recursivamente para que atenda as especificações de validade dele."""
         if val == 0:
             if self._check_cns_valid(cns):
