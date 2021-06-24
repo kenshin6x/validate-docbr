@@ -19,8 +19,10 @@ class BaseDoc(ABC):
         """Método para gerar um documento válido."""
         pass
 
-    def generate_list(self, n, mask, repeat: bool = False):
+    def generate_list(self, n, mask, repeat):
         n = 1
+        repeat = False
+        
         """Gerar uma lista do mesmo documento."""
         doc_list = []
 
